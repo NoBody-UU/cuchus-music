@@ -18,7 +18,7 @@ Welcome to Cuchus Music, the Discord music bot that allows you to play songs fro
 
 ## Documentation
 
-For more detailed information about the Cuchus Music Discord bot and its features, see the documentation at [DOCUMENTATION](https://doc-cuchus-music.nobody-dev.me).
+For more detailed information about the Cuchus Music Discord bot and its features, see the documentation at [DOCUMENTATION](https://doc-cuchusmusic.nobody-dev.me).
 
 ## Contribution
 
