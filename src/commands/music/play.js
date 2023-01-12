@@ -14,7 +14,7 @@ module.exports = {
         })
 
         const { channel } = message.member.voice;
-        if (!channel) return message.reply("❌ **| You need to be in voice channel.")
+        if (!channel) return message.reply("❌ **| You need to be in voice channel.**")
         if (!channel.permissionsFor(message.guild.members.me).has(PermissionsBitField.Flags.Connect)) return message.channel.send(`I don't have perm \`CONNECT\` in ${channel.name} to join voice!`);
         if (!channel.permissionsFor(message.guild.members.me).has(PermissionsBitField.Flags.Speak)) return message.channel.send(`I don't have perm \`SPEAK\` in ${channel.name} to join voice!`);
 
