@@ -1,7 +1,9 @@
 const { EmbedBuilder} = require("discord.js");
 const { EMBED_COLORS } = require("../../../settings/config");
 
-
+/**
+ * @type {import("../../structures/cmd")}
+ */
 module.exports = {
     config: {
         name: "ping",
@@ -10,7 +12,10 @@ module.exports = {
         description: "pong!",
         accessableby: "Members"
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
         
         let msg = await message.channel.send({
             embeds: [

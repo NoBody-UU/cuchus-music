@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const delay = require('delay');
 const { EMBED_COLORS } = require('../../../settings/config');
+const { getSettings } = require('../../Database/schemas/Guild');
 
 module.exports = {
     config: {
@@ -10,7 +11,12 @@ module.exports = {
         accessableby: "Member",
         aliases: []
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
+        const settings = getSettings(message.guild);
+        const PREFIX = settings.prefix;
         const msg = await message.channel.send("⏳ **Processing.....**")
         
         const queue = client.distube.getQueue(message);
@@ -29,7 +35,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setAuthor({ name: `Currently Filter`, iconURL: `https://cdn.discordapp.com/emojis/741605543046807626.gif`})
             .setDescription(`\🎲 **Filter:** \`${queue.filters.names.join(", ") || "Normal"}\``)
-            .setFooter({ text: `🔩 **Example:** \`${client.prefix}filter 3d\``})
+            .setFooter({ text: `🔩 **Example:** \`${PREFIX}filter 3d\``})
             .setTimestamp()
             .setColor(EMBED_COLORS.DEFAULT);
 

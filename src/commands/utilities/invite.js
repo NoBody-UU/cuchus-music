@@ -1,6 +1,9 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { EMBED_COLORS, LINKS } = require("../../../settings/config");
 
+/**
+ * @type {import("../../structures/cmd")}
+ */
 module.exports = {
     config: {
         name: "invite",
@@ -9,7 +12,10 @@ module.exports = {
         description: "Invite the Bot to your server.",
         accessableby: "Members"
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
         const embed = new EmbedBuilder()
         .setColor(EMBED_COLORS.DEFAULT)
         .setAuthor({ name: `💡 › Invite ${message.guild.members.me.displayName}`})

@@ -10,7 +10,10 @@ module.exports = {
         accessableby: "Member",
         category: "music",
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
         const queue = client.distube.getQueue(message);
         if (!queue) message.channel.send(`❌ **| There is nothing in the queue right now!**`)
         const { channel } = message.member.voice;

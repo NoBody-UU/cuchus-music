@@ -12,7 +12,10 @@ module.exports = {
         accessableby: "Owner",
         aliases: ["sbot"]
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
         if(message.author.id != client.owner){
             return message.reply({embeds: [new EmbedBuilder().setTitle('ERROR') .setDescription("This command is only for bot owners") .setColor(EMBED_COLORS.ERROR)]})
         }

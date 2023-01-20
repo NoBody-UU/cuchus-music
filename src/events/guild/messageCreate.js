@@ -1,11 +1,12 @@
 const { PermissionsBitField, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { link } = require("fs");
 const { EMBED_COLORS, LINKS } = require("../../../settings/config");
+const { getSettings } = require("../../Database/schemas/Guild");
 
 module.exports = async (client, message) => { 
     if(message.author.bot || message.channel.type === "dm") return;
-
-    const PREFIX = client.prefix;
+    const settings = await getSettings(message.guild);
+    const PREFIX = settings.prefix;
 
     const mention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(mention)) {

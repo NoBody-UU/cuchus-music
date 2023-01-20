@@ -10,6 +10,9 @@ module.exports = {
         accessableby: "Member",
         aliases: ["nc"]
     },
+ /**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
     run: async (client, message) => {
         const msg = await message.channel.send("⏳ **Processing.....**")
         

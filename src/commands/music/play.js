@@ -8,7 +8,10 @@ module.exports = {
         accessableby: "Member",
         category: "music",
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
        message.channel.send(`⏳ **Processing:**  \`${args.join(" ")}\``).then(msg => {
             setTimeout(() => msg.delete(), 5000)
         })

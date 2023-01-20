@@ -15,14 +15,13 @@ const Schema = new mongoose.Schema({
     leftAt: Date,
     bots: { type: Number, default: 0 },
   },
-
-  // prefix and language are futures features
+  // language is future feature
   prefix: { type: String, default: PREFIX },
   language: { type: String, default: LANGUAGE.defaultLocale},
 });
 
 const Model = mongoose.model("guild", Schema);
-module.exports = Model;
+
 module.exports = {
   /**
    * @param {import('discord.js').Guild} guild

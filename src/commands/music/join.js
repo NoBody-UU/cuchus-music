@@ -9,7 +9,10 @@ module.exports = {
         accessableby: "Member",
         category: "music",
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+ */
+  run: async (client, message, args) => {
         const msg = await message.channel.send("⏳ **Processing.....**");
 
 		const { channel } = message.member.voice;

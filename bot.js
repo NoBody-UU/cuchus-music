@@ -30,7 +30,6 @@ class MainClient extends Client {
         process.on("uncaughtException", (err) => client.logger.error(`Uncaught Exception`, err));
 
         this.config = require('./settings/config.js');
-        this.prefix = this.config.PREFIX;
         this.owner = this.config.OWNER_ID;
         // Language is future feature...
         this.i18n = new I18n(this.config.LANGUAGE);
@@ -63,9 +62,11 @@ class MainClient extends Client {
        
     
     
+    
     connect() {
         return super.login(TOKEN);
-        
     };
+        
+   
 };
 module.exports = MainClient;

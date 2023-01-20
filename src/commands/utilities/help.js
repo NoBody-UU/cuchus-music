@@ -3,7 +3,11 @@ const { readdirSync } = require("fs");
 const { stripIndents } = require("common-tags");
 const config = require("../../../settings/config");
 const { EMBED_COLORS } = require("../../../settings/config");
+const { getSettings } = require("../../Database/schemas/Guild");
 
+/**
+ * @type {import("../../structures/cmd")}
+ */
 module.exports = {
     config: {
         name: "help",
@@ -13,7 +17,12 @@ module.exports = {
         description: "Show all the commands that the bot has.",
         accessableby: "Members"
     },
-    run: async (client, message, args) => {
+/**
+ * @param {import('discord.js').Message} message - the message object that triggered the command
+*/
+  run: async (client, message, args) => {
+        const settings = getSettings(message.guild);
+        const PREFIX = settings.prefix;
         const embed = new EmbedBuilder()
             .setColor(EMBED_COLORS.DEFAULT)
             .setAuthor({ name: `${message.guild.members.me.displayName} Help Command!`, iconURL: message.guild.iconURL({ dynamic: true })})
@@ -22,7 +31,7 @@ module.exports = {
         if(!args[0]) {
             const categories = readdirSync("./src/commands")
 
-            embed.setDescription(`The bot prefix is: **${client.prefix}**`)
+            embed.setDescription(`The bot prefix is: **${PREFIX}**`)
             embed.setFooter({ text: `© ${message.guild.members.me.displayName} | Total Commands: ${client.commands.size}`, iconURL: client.user.displayAvatarURL({ dynamic: true })});
 
             categories.forEach(category => {
@@ -52,17 +61,17 @@ module.exports = {
                 return message.channel.send({ embeds: [embed], components: [row] });
         } else {
             let command = client.commands.get(client.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
-            if(!command) return message.channel.send({ embeds: [embed.setTitle("Invalid Command.").setDescription(`Do \`${client.prefix}help\` for the list of the commands.`)] })
+            if(!command) return message.channel.send({ embeds: [embed.setTitle("Invalid Command.").setDescription(`Do \`${PREFIX}help\` for the list of the commands.`)] })
             command = command.config
 
             return message.reply({ embeds: [
                 new EmbedBuilder()
                 .setColor(EMBED_COLORS.DEFAULT)
-                .setDescription(stripIndents`The client's prefix is: \`${client.prefix}\`\n
+                .setDescription(stripIndents`The client's prefix is: \`${PREFIX}\`\n
                 
                 **Command:** ${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}
                 **Description:** ${command.description || "No Description provided."}
-                **Usage:** ${command.usage ? `\`${client.prefix}${command.name} ${command.usage}\`` : "No Usage"}
+                **Usage:** ${command.usage ? `\`${PREFIX}${command.name} ${command.usage}\`` : "No Usage"}
                 **Accessible by:** ${command.accessableby || "Members"}
                 **Aliases:** ${command.aliases ? command.aliases.join(", ") : "None."}`)
             
