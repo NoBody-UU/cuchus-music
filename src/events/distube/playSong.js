@@ -14,7 +14,7 @@ module.exports = async (client, queue, track) => {
       message.reply({ content: "You need to be in a same/voice channel.", ephemeral: true });
     }
   };
-  const collector = nowplay.createMessageComponentCollector({ filter, time: 120000 });
+  const collector = nowplay.createMessageComponentCollector({ filter, time: 240000 });
 
   collector.on('collect', async (message) => {
     const id = message.customId;

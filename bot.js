@@ -6,7 +6,7 @@ const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { I18n } = require("@hammerhq/localization");
 const Logger = require("./src/helpers/Logger");
 const { initializeMongoose } = require("./src/Database/mongoose");
-const { LINKS, TOKEN } = require("./settings/config.js");
+const { LINKS, TOKEN, MUSIC } = require("./settings/config.js");
 
 class MainClient extends Client {
     constructor() {
@@ -41,12 +41,12 @@ class MainClient extends Client {
         const client = this;
 
         this.distube = new DisTube(client, {
-            searchSongs: 0, /// SET TO 5 FOR ENABLE SEARCH MODE!
-            searchCooldown: 30,
-            leaveOnEmpty: true,
-            emptyCooldown: 60,
-            leaveOnFinish: false,
-            leaveOnStop: true,
+            searchSongs: MUSIC.searchSongs,
+            searchCooldown: MUSIC.searchCooldown,
+            leaveOnEmpty: MUSIC.leaveOnEmpty,
+            emptyCooldown: MUSIC.emptyCooldown,
+            leaveOnFinish: MUSIC.leaveOnFinish,
+            leaveOnStop: MUSIC.leaveOnStop,
             plugins: [
                 new SoundCloudPlugin(),
                 new SpotifyPlugin({

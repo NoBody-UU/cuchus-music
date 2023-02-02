@@ -20,7 +20,7 @@ module.exports = {
     run: async (client, message) => {
         const settings = getSettings(message.guild);
         const PREFIX = settings.prefix;
-        const msg = await message.channel.send("Processing...");
+        const msg = await message.channel.send("⏳ **Processing.....**");
         const embed = new EmbedBuilder()
             .setColor(EMBED_COLORS.DEFAULT)
             .setAuthor({ name: `Filter List`, iconURL: message.guild.iconURL({ dynamic: true })})

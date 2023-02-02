@@ -15,7 +15,7 @@ module.exports = {
  */
   run: async (client, message, args) => {
         const queue = client.distube.getQueue(message);
-        if (!queue) message.channel.send(`❌ **| There is nothing in the queue right now!**`)
+        if (!queue) return message.channel.send(`❌ **| There is nothing in the queue right now!**`)
         const { channel } = message.member.voice;
         if (!channel || message.member.voice.channel !== message.guild.members.me.voice.channel) return message.channel.send("❌ **| You need to be in a same/voice channel.**")
 

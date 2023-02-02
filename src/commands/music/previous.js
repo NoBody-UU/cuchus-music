@@ -13,10 +13,10 @@ module.exports = {
  * @param {import('discord.js').Message} message - the message object that triggered the command
  */
   run: async (client, message, args) => {
-        const msg = await message.channel.send("Processing.....");
+        const msg = await message.channel.send("⏳ **Processing.....**");
 
         const queue = client.distube.getQueue(message);
-        if (!queue) msg.edit(`❌ **| There is nothing in the queue right now!**`)
+        if (!queue) return msg.edit(`❌ **| There is nothing in the queue right now!**`)
         const { channel } = message.member.voice;
         if (!channel || message.member.voice.channel !== message.guild.members.me.voice.channel) return msg.edit("❌ **| You need to be in voice channel.")
 

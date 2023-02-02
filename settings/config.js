@@ -20,6 +20,15 @@ module.exports = {
         ERROR: "#fe333e", // ERROR Color
     },
 
+    MUSIC: {
+      searchSongs: 0, // SET TO 5 FOR ENABLE SEARCH MODE!
+      searchCooldown: 30, // Built-in search cooldown in seconds (When searchSongs is bigger than 0). 
+      leaveOnEmpty: true, // Whether or not The Bot leaving voice channel if the voice channel is empty(emptyCooldown).
+      emptyCooldown: 60, // Built-in leave on empty cooldown in seconds (When leaveOnEmpty is true).
+      leaveOnFinish: false, // Whether or not The Bot leaving voice channel when the queue ends.
+      leaveOnStop: true, // Whether or not The Bot leaving voice channel after using stop command.
+    },
+
     CACHE_SIZE: {
         GUILDS: 100,
         USERS: 10000,
