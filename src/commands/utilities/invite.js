@@ -19,7 +19,7 @@ module.exports = {
         const embed = new EmbedBuilder()
         .setColor(EMBED_COLORS.DEFAULT)
         .setAuthor({ name: `💡 › Invite ${message.guild.members.me.displayName}`})
-        .setDescription(`\n**⭐ ›** **[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)**\n`)
+        .setDescription(`\n**⭐ ›** **[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=3262528&scope=bot)**\n`)
         .setTimestamp()
         .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL()});
 
@@ -27,7 +27,7 @@ module.exports = {
             .addComponents(
                 new ButtonBuilder()
                     .setLabel("Invite")
-                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
+                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=3262528&scope=bot`)
                     .setEmoji("🔗")
                     .setStyle(ButtonStyle.Link),
                 new ButtonBuilder()

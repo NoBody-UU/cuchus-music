@@ -21,7 +21,7 @@ module.exports = async (client, message) => {
             .addComponents(
                 new ButtonBuilder()
                     .setLabel("Invite")
-                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
+                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=3262528&scope=bot`)
                     .setEmoji("🔗")
                     .setStyle(ButtonStyle.Link),
                 new ButtonBuilder()
