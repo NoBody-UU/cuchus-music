@@ -10,7 +10,6 @@ module.exports = {
     LINKS: {
         JOIN_LEAVE_LOGS: process.env.JOIN_LEAVE_LOGS || "xxx", // Webhook join & leave guilds
         ERROR_LOGS: process.env.ERROR_LOGS || "xxx", // Webhook link for Error Logs
-        MONGO_CONNECTION: process.env.MONGO_CONNECTION|| "YOUR_MONGO_URL", // MongoDB Url
         SUPPORT_SERVER: process.env.SUPPORT_SERVER || "https://discord.gg/MqNKpdrGjw", // Your Discord Support Server 
     },
 

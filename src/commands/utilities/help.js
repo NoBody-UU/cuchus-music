@@ -3,7 +3,6 @@ const { readdirSync } = require("fs");
 const { stripIndents } = require("common-tags");
 const config = require("../../../settings/config");
 const { EMBED_COLORS } = require("../../../settings/config");
-const { getSettings } = require("../../Database/schemas/Guild");
 
 /**
  * @type {import("../../structures/cmd")}
@@ -21,8 +20,7 @@ module.exports = {
  * @param {import('discord.js').Message} message - the message object that triggered the command
 */
   run: async (client, message, args) => {
-        const settings = getSettings(message.guild);
-        const PREFIX = settings.prefix;
+        const PREFIX = config.PREFIX;
         const embed = new EmbedBuilder()
             .setColor(EMBED_COLORS.DEFAULT)
             .setAuthor({ name: `${message.guild.members.me.displayName} Help Command!`, iconURL: message.guild.iconURL({ dynamic: true })})

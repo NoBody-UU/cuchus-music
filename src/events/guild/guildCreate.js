@@ -1,12 +1,10 @@
 const { EmbedBuilder } = require("discord.js");
-const { getSettings: registerGuild } = require("../../Database/schemas/Guild");
 const { EMBED_COLORS } = require("../../../settings/config");
 
 module.exports = async (client, guild) => {
   if (!guild.available) return;
   if (!guild.members.cache.has(guild.ownerId)) await guild.fetchOwner({ cache: true }).catch(() => {});
   client.logger.log(`Guild Joined: ${guild.name} Members: ${guild.memberCount}`);
-  await registerGuild(guild);
 
   if (!client.joinLeaveWebhook) return;
 

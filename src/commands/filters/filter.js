@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const delay = require('delay');
 const { EMBED_COLORS } = require('../../../settings/config');
-const { getSettings } = require('../../Database/schemas/Guild');
+const config = require('../../../settings/config');
 
 module.exports = {
     config: {
@@ -15,8 +15,7 @@ module.exports = {
  * @param {import('discord.js').Message} message - the message object that triggered the command
  */
   run: async (client, message, args) => {
-        const settings = getSettings(message.guild);
-        const PREFIX = settings.prefix;
+        const PREFIX = config.PREFIX
         const msg = await message.channel.send("⏳ **Processing.....**")
         
         const queue = client.distube.getQueue(message);

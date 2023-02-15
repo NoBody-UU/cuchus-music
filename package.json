@@ -1,5 +1,5 @@
 {
-  "name": "cuchus-music",
+  "name": "cuchus-music-no-database",
   "version": "1.0.1",
   "description": "Simple Music Bot with distube.js",
   "main": "index.js",
@@ -34,7 +34,6 @@
     "fixedsize-map": "^1.0.1",
     "libsodium-wrappers": "^0.7.9",
     "lyrics-finder": "^21.7.0",
-    "mongoose": "^6.7.2",
     "opusscript": "^0.0.8",
     "path": "^0.12.7",
     "pino": "^8.8.0",

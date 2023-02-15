@@ -5,7 +5,6 @@ const { SpotifyPlugin } = require('@distube/spotify');
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { I18n } = require("@hammerhq/localization");
 const Logger = require("./src/helpers/Logger");
-const { initializeMongoose } = require("./src/Database/mongoose");
 const { LINKS, TOKEN, MUSIC } = require("./settings/config.js");
 
 class MainClient extends Client {
@@ -35,8 +34,6 @@ class MainClient extends Client {
         this.i18n = new I18n(this.config.LANGUAGE);
         this.logger = Logger;
         this.joinLeaveWebhook = LINKS.JOIN_LEAVE_LOGS ? new WebhookClient({ url: LINKS.JOIN_LEAVE_LOGS }) : undefined;
-        //  initialize the database
-        initializeMongoose();
 
         const client = this;
 

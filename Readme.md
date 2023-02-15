@@ -1,4 +1,4 @@
-# CUCHUS MUSIC | DISCORD MUSIC BOT
+# CUCHUS MUSIC | DISCORD MUSIC BOT (No Database)
 
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/NoBody-UU/cuchus-music.svg)](https://github.com/NoBody-UU/cuchus-music)
 [![Discord](https://img.shields.io/discord/644672989014523940.svg)](https://discord.gg/MqNKpdrGjw)
