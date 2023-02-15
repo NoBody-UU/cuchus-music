@@ -28,5 +28,16 @@ module.exports = {
           style: ButtonStyle.Success,
       },
   },
+
+  PAGEQUEUE:{
+    next: {
+        label: "➡",
+        style: ButtonStyle.Secondary,
+    },
+    back: {
+        label: "⬅",
+        style: ButtonStyle.Secondary,
+    }
+  }
   
 }

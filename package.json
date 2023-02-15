@@ -1,6 +1,6 @@
 {
   "name": "cuchus-music",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple Music Bot with distube.js",
   "main": "index.js",
   "scripts": {

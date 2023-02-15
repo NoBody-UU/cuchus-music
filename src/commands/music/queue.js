@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const { EMBED_COLORS } = require("../../../settings/config.js");
-const { QueuePage } = require('../../structures/pagequeue.js');
+const QueuePage  = require('../../structures/pagequeue.js');
 
 module.exports = {
     config: {

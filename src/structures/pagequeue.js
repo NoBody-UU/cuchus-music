@@ -1,4 +1,5 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { PAGEQUEUE } = require('../../settings/buttons');
 
 module.exports = async (client, message, pages, timeout, queueLength, queueDuration) => {
     if (!message && !message.channel) throw new Error('Channel is inaccessible.');
@@ -6,12 +7,12 @@ module.exports = async (client, message, pages, timeout, queueLength, queueDurat
 
     const row1 = new ButtonBuilder()
         .setCustomId('back')
-        .setLabel('⬅')
-        .setStyle(ButtonStyle.Secondary)
+        .setLabel(PAGEQUEUE.back.label)
+        .setStyle(PAGEQUEUE.back.style)
     const row2 = new ButtonBuilder()
         .setCustomId('next')
-        .setLabel('➡')
-        .setStyle(ButtonStyle.Secondary)
+        .setLabel(PAGEQUEUE.next.label)
+        .setStyle(PAGEQUEUE.next.style)
     const row = new ActionRowBuilder()
         .addComponents(row1, row2)
 
